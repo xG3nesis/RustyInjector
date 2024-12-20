@@ -11,14 +11,19 @@ This project is a Proof of Concept (PoC) demonstrating Bluetooth keystroke injec
 
 ## 🦀 Rusty Injector !
 
-<center><img src="_resources/rust_injector_logo.png" alt="Rust Injector logo." width="163" height="148"></center>
+<p align="center">
+<img src="_resources/rust_injector_logo.png" alt="Rust Injector logo." width="163" height="148">
+</p>
 
 Welcome to **Rusty Injector** — a Rust implementation inspired by Marc Newlin's [Bluetooth keystroke injection PoC](https://github.com/marcnewlin/hi_my_name_is_keyboard), linked to **CVE-2023-45866**, **CVE-2024-21306**, and **CVE-2024-0230**.
 
 Currently, this repository only implements CVE-2023-45866, which exploits keystroke injection vulnerabilities in **BlueZ** on the **Linux** operating system.
 
 *Below is a screenshot of the NIST description, including the CVSS scoring :*  
-<img src="_resources/ac8c8615e2b0597f7c9ce8169cee44d1.png" alt="NIST description of CVE-2023-45866" width="711" height="260">  
+<p align="center">
+<img src="_resources/ac8c8615e2b0597f7c9ce8169cee44d1.png" alt="NIST description of CVE-2023-45866" width="711" height="260">
+</p>
+
 **Capture 1** : NIST description of CVE-2023-45866.
 
 The other CVEs, CVE-2024-21306 and CVE-2024-0230, **are not planned for implementation by myself**, but contributions are warmly welcomed.
@@ -34,7 +39,9 @@ As we have only covered CVE-2023-45866 vulnerability standing for Linux operatin
 
 First of all, you must understand that this vulnerability **is only exploitable on Bluetooth BR/EDR** because it is targeting the HID profile standing upon this technology. You may know that the bluetooth architectural implementation is divided into multiple layers such as the OSI model for the ethernet protocol, and as you can observe it on our schematic below.
 
-<center><img src="_resources/rusty_injector_bluetooth_stack.png" alt="Bluetooth Stack HID" width="400" height="417"></center>
+<p align="center">
+<img src="_resources/rusty_injector_bluetooth_stack.png" alt="Bluetooth Stack HID" width="400" height="417">
+</p>
 
 **Diagram 1** : Simplified Bluetooth BR/EDR (Basic Rate - Enhanced Data Rate) stack. *The lowest layer of the stack represents the physical layer with a dedicated antenna, and the higher level stands for the application level or that we can sometimes designate as the operating system. When two devices want to communicate with eachother, they go through these different layers : from up to bottom for outgoing packets and bottom to up for incoming bluetooth packets.*
 
@@ -51,13 +58,17 @@ There are four pairing association models, determined by the devices' I/O (Input
 
 Below is a table showing which association model is used based on the capabilities of our IoT devices.
 
-<center><img src="_resources/rusty_injector_bluetooth_association_models.png" alt="Bluetooth association models." width="940" height="529"></center>
+<p align="center">
+<img src="_resources/rusty_injector_bluetooth_association_models.png" alt="Bluetooth association models." width="940" height="529">
+</p>
 
 **Diagram 2** : Table illustrating Bluetooth BR/EDR association models inspired by the Bluetooth Core Specification v5.3 - 2.3.5.1 Selecting key generation method Table 2.8 : Mapping of IO cacpabilities to key generation method (page 1573). *For more information on security modes and association models, please check this interresting blog post published by Thyrasec : [Bluetooth Security : Classic & BLE](https://www.thyrasec.com/blog/bluetooth-security-primer-classic-ble/) !*
 
 I’m confident you’re intrigued by the 'Just Works' method, which is precisely where our vulnerability lies. Here’s the issue: this method establishes pairing without requiring user confirmation or interaction, leaving no way to verify the authenticity of the pairing device. On Linux systems, the BlueZ stack, by default, accepted incoming pairing requests from devices classified as NoInputNoOutput (to enable backward compatibility). A truly "wonderful" design choice, wouldn’t you agree?
 
-<center><img src="_resources/rusty_injector_default_update.png" alt="Linux default configuration update." width="540" height="635"></center>
+<p align="center">
+<img src="_resources/rusty_injector_default_update.png" alt="Linux default configuration update." width="540" height="635">
+</p>
 
 **Capture 2** : Update of the default configuration of blueZ to enable bluetooth security and patch CVE-2023-45866.
 
@@ -113,7 +124,9 @@ By the following one :
  Now you simply need to pull the project and execute it by building it with `cargo build` or running it directly by specyfing the arguments with : 
  `cargo run -- -i [BT_INTERFACE] -t [BT_TARGET]`.
 
-<center><img src="_resources/cbcfdb876739cc3913caf5a3bf126c0c.png" alt="Command line interface of Rusty Injector"></center>
+<p align="center">
+<img src="_resources/cbcfdb876739cc3913caf5a3bf126c0c.png" alt="Command line interface of Rusty Injector">
+</p>
 
 **Capture 3** : Command line interface of Rusty Injector.
 
