@@ -107,7 +107,7 @@ I've attempted to comment my code as much as possible. If you go through it, you
 
 ### 3\. How to use ?
 
-First thing to note : he tool was **developped and tested on Ubuntu 24.04**.
+First thing to note : This tool was **developped and tested on Ubuntu 24.04**.
 
 To use this tool, you need to disable the default HID service registered by BlueZ, so it can be re-registered when launching the exploit. Follow these steps:
 
