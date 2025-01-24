@@ -12,7 +12,7 @@ This project is a Proof of Concept (PoC) demonstrating Bluetooth keystroke injec
 ## 🦀 Rusty Injector !
 
 <p align="center">
-<img src="_resources/rust_injector_logo.png" alt="Rust Injector logo." width="163" height="148">
+<img src="_resources/rusty_injector_logo.png" alt="Rust Injector logo." width="163" height="148">
 </p>
 
 Welcome to **Rusty Injector** — a Rust implementation inspired by Marc Newlin's [Bluetooth keystroke injection PoC](https://github.com/marcnewlin/hi_my_name_is_keyboard), linked to **CVE-2023-45866**, **CVE-2024-21306**, and **CVE-2024-0230**.
