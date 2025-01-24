@@ -31,7 +31,7 @@ The other CVEs, CVE-2024-21306 and CVE-2024-0230, **are not planned for implemen
 ### 1\. How does it work ?
 
 *Before getting into any details, I encourage you to watch Marc Newlin's presentation at the NullCon 2024 Conference, as it offers a clear and thorough explanation of these vulnerabilities : [Hi, My Name Is keyboard by Marc Newlin.](https://www.youtube.com/watch?v=Nj7Qj3-_nQg&ab_channel=nullcon)*.  
-*I've also made available a video that popularizes this vulnerability. You'll find it right here : Marc Newlin's Bluetooth Keystroke Injection (Would be uploaded soon)*.
+*I've also made available a video that popularizes this vulnerability. You'll find it right here : [How a Simple Bluetooth Hack Can Hijack Your Device - Hi, my name is keyboard](https://www.youtube.com/watch?v=EBkDfNSJqKg&ab_channel=Industry4.04).
 
 📌 If you notice any missing points, areas that could be better simplified, or potential mistakes in the explanation below, please feel free to modify it and submit a merge request. I would be delighted to review your contributions and incorporate them into the repository.
 
